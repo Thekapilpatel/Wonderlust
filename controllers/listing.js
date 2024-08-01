@@ -11,7 +11,7 @@ module.exports.index =   async (req, res) => {
 
   module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs");
-    res.redirect("/listings");
+    // res.redirect("/listings");
   };
 
   module.exports.showListing = async (req, res) => {
@@ -33,7 +33,7 @@ module.exports.index =   async (req, res) => {
   };
 
   module.exports.createListing = async (req, res) => { //create listing
-    let response = await geocodingClint.forwordGeocode({
+    let response = await mbxGeocoding.forwordGeocode({
       query: req.body.listing.location,
       limit: 1,
     }).send();
@@ -54,7 +54,7 @@ module.exports.index =   async (req, res) => {
     let savedlisting = await newlisting.save();
     console.log(saved);
   
-    await newlisting.save();
+    // await newlisting.save();
     req.flash("success", "New listing created !");
     res.redirect("/listings");
   };
@@ -79,6 +79,7 @@ module.exports.index =   async (req, res) => {
 
 //update route
   module.exports.updateListing = async (req, res) => {
+    let { id } = req.params;
      let listing= await Listing.findByIdAndUpdate(id, { ...req.body.listing });
 
 if(typeof req.file !=="undefined"){

@@ -41,10 +41,10 @@ const sessionOptions = {
   },
 };
 
-app.get("/", (req, res) => {
-  // home root
-  res.send("Hi, There iam  Root. ");
-});
+// app.get("/", (req, res) => {
+//   // home root
+//   res.send("Hi, There iam  Root. ");
+// });
 
 app.use(session(sessionOptions));//creating session in express
 app.use(flash());

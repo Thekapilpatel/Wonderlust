@@ -1,35 +1,90 @@
 <body>
 
   <% layout("layouts/boilerPlate") -%>
-    
-      <div><br>
-        <h3>All Listings</h3>
 
+    <div><br>
+<style>
+  #filter{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .filter{
+    text-align: center;
+    margin-left: 2rem;
+    /* margin-top: rem; */
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .filter :hover{
+    opacity: 1;
+  }
+</style>
+<div id="filter">
+      <div class="filter">
+        <div><i class="fa-solid fa-fire"></i></div>
+        <p>Tranding</p>
       </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-door-open"></i></div>
+        <p>Room</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Iconic Cities</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-chess-rook"></i></div>
+        <p>Castiles</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-swimming-pool"></i></div>
+        <p>Amazing Pools</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+      </div>
+      <div class="filter">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+      </div>
+     
+    </div>
+   
+    </div>
 
-      <div class="row row-cols-lg-3  row-cols-md-3 row-cols-sm-1">
+    <div class="row row-cols-lg-3  row-cols-md-3 row-cols-sm-1">
 
-        <% for( let listing of allListings){ %>
-          <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card listing-card col">
-              <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image" style="height: 20rem;">
-              <div class="card-body">
-                <div class="card-img-overlay"></div>
-                <b class="card-text">
-                  <%= listing.title %>
-                </b>
-                <p class="card-text"> &#x20B9; <%= listing.price.toLocaleString("en-IN")%> /Night</p>
-                </p>
+      <% for( let listing of allListings){ %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+          <div class="card listing-card col">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image" style="height: 20rem;">
+            <div class="card-body">
+              <div class="card-img-overlay"></div>
+              <b class="card-text">
+                <%= listing.title %>
+              </b>
+              <p class="card-text"> &#x20B9; <%= listing.price.toLocaleString("en-IN")%> /Night</p>
+              </p>
 
 
 
-              </div>
             </div>
+          </div>
 
 
-            <% } %>
-      </div>
-      </a>
+          <% } %>
+    </div>
+    </a>
 
 
 
